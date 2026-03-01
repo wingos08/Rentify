@@ -834,7 +834,7 @@
   <span>Fribourg, Suisse 🇨🇭</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Nav scroll
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => {
@@ -853,6 +853,17 @@
       el.textContent = Math.floor(current);
     }, 16);
   }
+
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.reveal-stat').forEach(el => counterObserver.observe(el));
+</script>
+</body>
+</html>
