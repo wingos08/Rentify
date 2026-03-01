@@ -350,15 +350,6 @@
       object-fit: cover;
     }
 
-    .card-fake-img {
-      width: 100%;
-      height: 70%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
     .card-info {
       padding: 0.8rem 1rem;
       display: flex;
@@ -538,8 +529,11 @@
       color: rgba(192, 57, 43, 0.2);
     }
 
-    .service-icon {
-      font-size: 2rem;
+    .service-icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 8px;
       margin-bottom: 1rem;
     }
 
@@ -1080,21 +1074,27 @@
     <div class="services-grid">
       <div class="service-card reveal">
         <div class="service-num">01</div>
-        <div class="service-icon">📸</div>
+        <img class="service-icon-img"
+          src="file:///C:/Users/quent/.gemini/antigravity/brain/91f8d85c-f228-4aff-aeb7-181dc5e554eb/service_photo_1772399271290.png"
+          alt="Photos" />
         <h3 class="service-title">Photos professionnelles</h3>
         <p class="service-desc">Séance photo sur place avec éclairage softbox pour des images lumineuses, nettes et
           attractives. Retouche complète via Adobe Lightroom.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-num">02</div>
-        <div class="service-icon">✍️</div>
+        <img class="service-icon-img"
+          src="file:///C:/Users/quent/.gemini/antigravity/brain/91f8d85c-f228-4aff-aeb7-181dc5e554eb/service_desc_1772399388297.png"
+          alt="Description" />
         <h3 class="service-title">Description optimisée</h3>
         <p class="service-desc">Titre accrocheur, description structurée et mots-clés pertinents rédigés en français et
           en allemand pour maximiser votre visibilité.</p>
       </div>
       <div class="service-card reveal">
         <div class="service-num">03</div>
-        <div class="service-icon">🚀</div>
+        <img class="service-icon-img"
+          src="file:///C:/Users/quent/.gemini/antigravity/brain/91f8d85c-f228-4aff-aeb7-181dc5e554eb/service_launch_1772399445186.png"
+          alt="Fusée" />
         <h3 class="service-title">Mise en ligne et suivi</h3>
         <p class="service-desc">Nous publions l'annonce avec vous et assurons un suivi post-publication pour vérifier
           les performances et ajuster si nécessaire.</p>
