@@ -37,7 +37,7 @@
       --gray-light: #F2EFED;
       --gray: #888;
       --dark: #1A1A1A;
-      --nav-h: 140px;
+      --nav-h: 80px;
     }
 
     html {
@@ -87,9 +87,12 @@
     }
 
     .nav-logo img {
-      height: 120px;
-      /* Modification de la hauteur pour agrandir le logo */
+      height: 65px;
       width: auto;
+      transform: scale(1.5);
+      /* Agrandit visuellement l'image */
+      transform-origin: left center;
+      /* Garde le logo aligné à gauche */
     }
 
     .nav-links {
