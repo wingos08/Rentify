@@ -132,9 +132,10 @@
       align-items: center;
       background: var(--red);
       color: white !important;
-      padding: 0.6rem 1.4rem;
+      padding: 0.85rem 2rem;
       border-radius: 2px;
       font-weight: 600 !important;
+      font-size: 0.95rem;
       transition: background 0.2s !important;
     }
 
@@ -945,7 +946,7 @@
     }
 
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 1200px) {
+    @media (max-width: 992px) {
       .hero {
         grid-template-columns: 1fr;
         padding-top: calc(var(--nav-h) + 2rem);
@@ -981,9 +982,61 @@
         grid-template-columns: 1fr;
       }
 
-      .nav-links {
-        display: none;
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 101;
       }
+
+      .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+        background: var(--dark);
+      }
+
+      .nav-links {
+        position: fixed;
+        left: -100%;
+        top: var(--nav-h);
+        flex-direction: column;
+        background: var(--off-white);
+        width: 100%;
+        height: calc(100vh - var(--nav-h));
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+        gap: 2rem;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .mobile-menu-active .menu-toggle .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-active .menu-toggle .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .mobile-menu-active .menu-toggle .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .menu-toggle {
+      display: none;
     }
   </style>
 </head>
@@ -1310,6 +1363,23 @@
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      document.body.classList.toggle('mobile-menu-active');
+    });
+
+    // Close menu when link is clicked
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        document.body.classList.remove('mobile-menu-active');
+      });
     });
 
     // Counter animation
