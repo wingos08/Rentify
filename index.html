@@ -130,9 +130,10 @@
     .nav-cta {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       background: var(--red);
       color: white !important;
-      padding: 0.85rem 2rem;
+      padding: 0.85rem 2rem !important;
       border-radius: 2px;
       font-weight: 600 !important;
       font-size: 0.95rem;
@@ -1405,6 +1406,24 @@
     }, { threshold: 0.5 });
 
     document.querySelectorAll('.reveal-stat').forEach(el => counterObserver.observe(el));
+  </script>
+
+  <script>
+    // Reveal animations on scroll
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('hidden');
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('hidden');
+      revealObserver.observe(el);
+    });
   </script>
 
   <script>
