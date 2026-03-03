@@ -1404,7 +1404,7 @@
           counterObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.5 });
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.reveal-stat').forEach(el => counterObserver.observe(el));
   </script>
