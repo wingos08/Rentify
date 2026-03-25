@@ -1412,7 +1412,7 @@
           </div>
         </div>
       </div>
-      <form class="contact-form reveal" name="contact" action="#" method="post">
+      <form class="contact-form reveal" name="contact" id="contact-form">
         <div class="form-group">
           <label class="form-label" for="nom">Votre nom</label>
           <input type="text" id="nom" name="nom" class="form-input" placeholder="Jean Dupont" required autocomplete="name" />
@@ -1450,6 +1450,25 @@
   </div>
 
   <script>
+    // ─── CONTACT FORM ───
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nom     = document.getElementById('nom').value;
+      const email   = document.getElementById('email').value;
+      const airbnb  = document.getElementById('airbnb').value;
+      const message = document.getElementById('message').value;
+
+      const subject = encodeURIComponent('Nouvelle demande Rentify — ' + nom);
+      const body    = encodeURIComponent(
+        'Nom : ' + nom + '\n' +
+        'Email : ' + email + '\n' +
+        (airbnb ? 'Annonce Airbnb : ' + airbnb + '\n' : '') +
+        '\nMessage :\n' + message
+      );
+
+      window.location.href = 'mailto:Rentify.GCE@proton.me?subject=' + subject + '&body=' + body;
+    });
+
     // ─── SHADER ANIMATION ───
     (function () {
       const canvas = document.getElementById('shader-canvas');
@@ -1585,4 +1604,3 @@
 </body>
 
 </html>
-
